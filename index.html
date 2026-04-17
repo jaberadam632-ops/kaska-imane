@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>هدية حب رومانسية 💖</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Dancing+Script:wght@600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== RESET ===== */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --pink-main:  #ff4d7d;
+      --pink-light: #ff8fab;
+      --pink-pale:  #ffb3c6;
+      --purple:     #c44d88;
+    }
+
+    /* ===== PAGE ===== */
+    body {
+      font-family: 'Tajawal', 'Amiri', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      background: linear-gradient(135deg,
+        #1a0020 0%,
+        #2d0040 30%,
+        #3d0050 50%,
+        #2d0040 70%,
+        #0d001a 100%);
+    }
+
+    #love-page {
+      min-height: 100vh;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* ===== GLOW ORBS ===== */
+    .glow-orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+      z-index: 0;
+      animation: orbPulse 7s ease-in-out infinite;
+    }
+    .orb-1 {
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, rgba(255,77,125,.18) 0%, transparent 70%);
+      top: -120px; left: -120px;
+    }
+    .orb-2 {
+      width: 520px; height: 520px;
+      background: radial-gradient(circle, rgba(196,77,136,.15) 0%, transparent 70%);
+      bottom: -160px; right: -160px;
+      animation-delay: -3.5s;
+    }
+    .orb-3 {
+      width: 320px; height: 320px;
+      background: radial-gradient(circle, rgba(255,143,171,.12) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      animation-delay: -1.8s;
+    }
+    @keyframes orbPulse {
+      0%,100% { opacity: .7; transform: scale(1);  }
+      33%      { opacity: 1;  transform: scale(1.1) translate(10px,-15px); }
+      66%      { opacity: .6; transform: scale(.9)  translate(-10px,10px); }
+    }
+    .orb-3 { animation: orbPulse3 7s ease-in-out infinite -1.8s; }
+    @keyframes orbPulse3 {
+      0%,100% { opacity:.7; transform:translate(-50%,-50%) scale(1); }
+      50%      { opacity:1;  transform:translate(-50%,-50%) scale(1.15); }
+    }
+
+    /* ===== FLOATING HEARTS ===== */
+    .floating-heart {
+      position: fixed;
+      bottom: -60px;
+      pointer-events: none;
+      z-index: 1;
+      animation: floatUp linear infinite;
+      user-select: none;
+      text-shadow: 0 0 10px currentColor;
+    }
+    @keyframes floatUp {
+      0%   { transform: translateY(0)     rotate(0deg)   scale(1);    opacity: .8; }
+      25%  { transform: translateY(-25vh) rotate(15deg)  scale(1.1); }
+      50%  { transform: translateY(-50vh) rotate(-10deg) scale(.9); }
+      75%  { transform: translateY(-75vh) rotate(20deg)  scale(1.05); }
+      100% { transform: translateY(-110vh) rotate(-5deg) scale(.8);   opacity: 0; }
+    }
+
+    /* ===== SPARKLES ===== */
+    .sparkle {
+      position: fixed;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fff 0%, rgba(255,200,220,.8) 40%, transparent 70%);
+      pointer-events: none;
+      z-index: 5;
+      animation: sparkleAnim ease-in-out forwards;
+    }
+    @keyframes sparkleAnim {
+      0%   { transform: scale(0) rotate(0deg);   opacity: 0; }
+      20%  { transform: scale(1.5) rotate(45deg); opacity: 1; }
+      60%  { transform: scale(1) rotate(90deg);   opacity: .8; }
+      100% { transform: scale(0) rotate(180deg);  opacity: 0; }
+    }
+
+    /* ===== AUDIO BUTTON ===== */
+    #audio-btn {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 18px;
+      background: rgba(255,77,125,.2);
+      border: 1.5px solid rgba(255,143,171,.4);
+      border-radius: 50px;
+      color: #ffb3c6;
+      font-family: 'Tajawal', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      transition: all .3s ease;
+    }
+    #audio-btn:hover {
+      background: rgba(255,77,125,.35);
+      border-color: rgba(255,143,171,.7);
+      color: #fff;
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255,77,125,.4);
+    }
+    #audio-btn.playing {
+      animation: audioPulse 2s ease-in-out infinite;
+    }
+    @keyframes audioPulse {
+      0%,100% { box-shadow: 0 0 15px rgba(255,77,125,.3); }
+      50%      { box-shadow: 0 0 35px rgba(255,77,125,.7); }
+    }
+
+    /* ===== CONTENT ===== */
+    #content {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 700px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      padding-top: 70px;
+      padding-bottom: 50px;
+    }
+
+    /* ===== TITLE ===== */
+    #main-title {
+      font-family: 'Dancing Script', 'Amiri', cursive;
+      font-size: clamp(2rem, 9vw, 4rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, #ff8fab 0%, #ff4d7d 40%, #c44d88 70%, #ffb3c6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      filter: drop-shadow(0 0 22px rgba(255,77,125,.55));
+      letter-spacing: .03em;
+      line-height: 1.3;
+      min-height: 1.4em;
+      text-align: center;
+      direction: rtl;
+    }
+    #cursor {
+      display: inline-block;
+      -webkit-text-fill-color: #ff8fab;
+      animation: blink .8s step-end infinite;
+    }
+    @keyframes blink {
+      0%,100% { opacity:1; }
+      50%      { opacity:0; }
+    }
+
+    /* ===== HEART CONTAINER ===== */
+    #heart-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      cursor: pointer;
+    }
+    #heart-shape {
+      width: clamp(200px, 55vw, 300px);
+      height: clamp(200px, 55vw, 300px);
+      filter:
+        drop-shadow(0 0 30px rgba(255,77,125,.5))
+        drop-shadow(0 0 60px rgba(196,77,136,.35))
+        drop-shadow(0 10px 40px rgba(0,0,0,.5));
+      animation: heartbeat 2.5s ease-in-out infinite;
+      transition: filter .25s, transform .25s;
+    }
+    #heart-shape:hover {
+      filter:
+        drop-shadow(0 0 55px rgba(255,77,125,.85))
+        drop-shadow(0 0 95px rgba(255,143,171,.5))
+        drop-shadow(0 10px 40px rgba(0,0,0,.5));
+      transform: scale(1.08) rotate(-2deg);
+    }
+    #heart-shape.clicked {
+      animation: heartClick .5s ease forwards !important;
+    }
+    @keyframes heartClick {
+      0%   { transform: scale(1); }
+      30%  { transform: scale(1.22) rotate(5deg); }
+      65%  { transform: scale(.95) rotate(-3deg); }
+      100% { transform: scale(1.05); }
+    }
+    @keyframes heartbeat {
+      0%,100% { transform: scale(1); }
+      14%     { transform: scale(1.07); }
+      28%     { transform: scale(1); }
+      42%     { transform: scale(1.04); }
+      70%     { transform: scale(1); }
+    }
+    #heart-shape svg { width:100%; height:100%; overflow:visible; }
+
+    #click-hint {
+      font-size: 13px;
+      color: rgba(255,143,171,.7);
+      animation: hintFade 3s ease-in-out infinite;
+    }
+    @keyframes hintFade {
+      0%,100% { opacity:.5; }
+      50%      { opacity:1; }
+    }
+
+    /* ===== SECOND MESSAGE ===== */
+    #second-msg {
+      background: rgba(255,77,125,.08);
+      border: 1px solid rgba(255,143,171,.25);
+      border-radius: 20px;
+      padding: 28px 32px;
+      max-width: 600px;
+      width: 100%;
+      backdrop-filter: blur(12px);
+      display: none;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1.2s ease, transform 1.2s ease;
+    }
+    #second-msg.visible {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #second-msg p {
+      font-family: 'Amiri', serif;
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      line-height: 2;
+      color: #f0c0d0;
+      text-align: center;
+      direction: rtl;
+    }
+
+    /* ===== FOOTER HEARTS ===== */
+    #footer-hearts {
+      display: flex;
+      gap: 16px;
+      font-size: 26px;
+    }
+    #footer-hearts span {
+      display: inline-block;
+      animation: heartPop 2s ease-in-out infinite;
+    }
+    #footer-hearts span:nth-child(1) { animation-delay: 0s; }
+    #footer-hearts span:nth-child(2) { animation-delay: .3s; }
+    #footer-hearts span:nth-child(3) { animation-delay: .6s; }
+    #footer-hearts span:nth-child(4) { animation-delay: .9s; }
+    #footer-hearts span:nth-child(5) { animation-delay: 1.2s; }
+    @keyframes heartPop {
+      0%,100% { transform: scale(1);    filter: brightness(1); }
+      50%      { transform: scale(1.28); filter: brightness(1.35) drop-shadow(0 0 9px rgba(255,77,125,.85)); }
+    }
+
+    /* ===== POPUP ===== */
+    #popup-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.65);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(6px);
+      animation: overlayIn .3s ease;
+    }
+    #popup-overlay.open { display: flex; }
+    @keyframes overlayIn {
+      from { opacity:0; } to { opacity:1; }
+    }
+    #popup-card {
+      background: linear-gradient(135deg, rgba(45,0,64,.97) 0%, rgba(61,0,80,.97) 100%);
+      border: 1.5px solid rgba(255,143,171,.45);
+      border-radius: 28px;
+      padding: 40px 36px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 0 70px rgba(255,77,125,.3), 0 30px 80px rgba(0,0,0,.6);
+      animation: popupIn .5s cubic-bezier(.175,.885,.32,1.275);
+    }
+    @keyframes popupIn {
+      from { opacity:0; transform:scale(.6) translateY(30px); }
+      to   { opacity:1; transform:scale(1) translateY(0); }
+    }
+    #popup-hearts {
+      font-size: 30px;
+      margin-bottom: 18px;
+      animation: floatHeart 2s ease-in-out infinite;
+    }
+    @keyframes floatHeart {
+      0%,100% { transform:translateY(0); }
+      50%      { transform:translateY(-7px); }
+    }
+    #popup-msg {
+      font-family: 'Dancing Script', 'Amiri', cursive;
+      font-size: clamp(1.2rem, 5vw, 1.75rem);
+      font-weight: 600;
+      color: #ffb3c6;
+      line-height: 1.65;
+      margin-bottom: 28px;
+      text-shadow: 0 0 22px rgba(255,77,125,.4);
+      direction: rtl;
+    }
+    #popup-close {
+      background: linear-gradient(135deg, #ff4d7d 0%, #c44d88 100%);
+      color: #fff;
+      border: none;
+      border-radius: 50px;
+      padding: 13px 36px;
+      font-family: 'Tajawal', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .3s ease;
+      box-shadow: 0 0 22px rgba(255,77,125,.4);
+    }
+    #popup-close:hover {
+      transform: scale(1.06) translateY(-2px);
+      box-shadow: 0 0 40px rgba(255,77,125,.75);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 480px) {
+      #content      { gap:22px; padding-top:75px; }
+      #second-msg   { padding:18px 16px; }
+      #popup-card   { padding:28px 18px; }
+      #audio-btn    { top:12px; left:12px; padding:8px 13px; font-size:12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ==============================
+     🎵  AUDIO
+     بدّل رابط src بموسيقى رومانسية من اختيارك
+================================= -->
+<audio id="bg-audio" loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg" />
+</audio>
+
+<div id="love-page">
+
+  <!-- Glow Orbs -->
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+  <div class="glow-orb orb-3"></div>
+
+  <!-- Audio Button -->
+  <button id="audio-btn" onclick="toggleAudio()">
+    <span id="audio-icon">🔇</span>
+    <span id="audio-label">تشغيل</span>
+  </button>
+
+  <!-- Main Content -->
+  <div id="content">
+
+    <!-- Typing Title -->
+    <h1 id="main-title"><span id="typed-text"></span><span id="cursor">|</span></h1>
+
+    <!-- Heart + Photo -->
+    <div id="heart-container" onclick="heartClick()">
+      <div id="heart-shape">
+        <svg viewBox="0 0 200 185" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <clipPath id="heartClip">
+              <path d="M100 170 C100 170 18 112 18 58 C18 28 38 8 68 8 C84 8 95 19 100 30 C105 19 116 8 132 8 C162 8 182 28 182 58 C182 112 100 170 100 170Z"/>
+            </clipPath>
+            <radialGradient id="hGrad" cx="50%" cy="40%" r="60%">
+              <stop offset="0%"   stop-color="#ff8fab"/>
+              <stop offset="50%"  stop-color="#ff4d7d"/>
+              <stop offset="100%" stop-color="#c44d88"/>
+            </radialGradient>
+          </defs>
+
+          <!-- Heart fill -->
+          <path d="M100 170 C100 170 18 112 18 58 C18 28 38 8 68 8 C84 8 95 19 100 30 C105 19 116 8 132 8 C162 8 182 28 182 58 C182 112 100 170 100 170Z"
+                fill="url(#hGrad)"
+                stroke="rgba(255,255,255,.25)" stroke-width="2"/>
+
+          <!-- ====================================================
+               👇 ضع رابط صورتك هنا بدلاً من  YOUR_IMAGE_HERE
+               مثال: href="https://example.com/photo.jpg"
+               أو   href="photo.jpg"  (إذا الصورة في نفس المجلد)
+          ===================================================== -->
+          <image href="YOUR_IMAGE_HERE"
+                 x="20" y="10"
+                 width="160" height="155"
+                 clip-path="url(#heartClip)"
+                 preserveAspectRatio="xMidYMid slice"/>
+
+          <!-- Heart border glow -->
+          <path d="M100 170 C100 170 18 112 18 58 C18 28 38 8 68 8 C84 8 95 19 100 30 C105 19 116 8 132 8 C162 8 182 28 182 58 C182 112 100 170 100 170Z"
+                fill="none"
+                stroke="rgba(255,180,210,.55)" stroke-width="3"/>
+
+          <!-- Shine -->
+          <ellipse cx="75" cy="38" rx="18" ry="12"
+                   fill="rgba(255,255,255,.15)" transform="rotate(-30,75,38)"/>
+        </svg>
+      </div>
+      <p id="click-hint">✨ اضغطي على القلب ✨</p>
+    </div>
+
+    <!-- Second Message (fade in after typing finishes) -->
+    <div id="second-msg">
+      <p>
+        أنتِ الضوء الذي يُنير أيامي، والبسمة التي تُجمّل لحظاتي.<br/>
+        كل يوم يمر أزداد إدراكًا لكم أنتِ تعنين لي.<br/>
+        شكرًا لأنكِ موجودة في حياتي 🌹
+      </p>
+    </div>
+
+    <!-- Footer Hearts -->
+    <div id="footer-hearts">
+      <span>💝</span><span>💖</span><span>💗</span><span>💕</span><span>💓</span>
+    </div>
+
+  </div><!-- /#content -->
+</div><!-- /#love-page -->
+
+<!-- Surprise Popup -->
+<div id="popup-overlay" onclick="closePopup()">
+  <div id="popup-card" onclick="event.stopPropagation()">
+    <div id="popup-hearts">💖 💗 💖</div>
+    <p id="popup-msg"></p>
+    <button id="popup-close" onclick="closePopup()">إغلاق 💝</button>
+  </div>
+</div>
+
+<script>
+  /* =========================================================
+     ⚙️  CONFIG — يمكنكِ تعديل هذه القيم بسهولة
+  ========================================================= */
+  const MAIN_MESSAGE    = "لكِ يا أعز صديقة 💖";
+  const TYPING_SPEED_MS = 110;            // سرعة ظهور الحروف (ms)
+  const SECOND_MSG_DELAY= 1800;           // تأخير ظهور الرسالة الثانية (ms)
+  const HEART_COUNT     = 20;             // عدد القلوب العائمة
+  const SPARKLE_INTERVAL= 3000;           // كل كم ms تظهر نجوم؟
+
+  const SURPRISE_MESSAGES = [
+    "أنتِ أجمل هدية منحتها لي الحياة 🌹",
+    "قلبي يحمل اسمكِ دائماً 💖",
+    "صداقتكِ تساوي العالم كله ✨",
+    "أنتِ نجمتي المضيئة في كل الأوقات 🌟",
+    "كل يوم معكِ هو يوم لا يُنسى 🌸",
+  ];
+
+  const HEART_COLORS = [
+    "#ff6b9d","#ff4d7d","#c44d88",
+    "#ff8fab","#ffb3c6","#e91e8c","#ff69b4"
+  ];
+
+  /* ===== TYPING EFFECT ===== */
+  (function startTyping() {
+    const el  = document.getElementById('typed-text');
+    const cur = document.getElementById('cursor');
+    let i = 0;
+    function type() {
+      if (i <= MAIN_MESSAGE.length) {
+        el.textContent = MAIN_MESSAGE.slice(0, i++);
+        setTimeout(type, TYPING_SPEED_MS);
+      } else {
+        cur.style.display = 'none';
+        setTimeout(showSecondMessage, SECOND_MSG_DELAY);
+      }
+    }
+    setTimeout(type, 600);
+  })();
+
+  /* ===== SECOND MESSAGE ===== */
+  function showSecondMessage() {
+    const el = document.getElementById('second-msg');
+    el.style.display = 'block';
+    // Force reflow then add visible class
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => el.classList.add('visible'));
+    });
+  }
+
+  /* ===== FLOATING HEARTS ===== */
+  (function spawnHearts() {
+    const page = document.getElementById('love-page');
+    for (let i = 0; i < HEART_COUNT; i++) {
+      const h = document.createElement('div');
+      h.className = 'floating-heart';
+      const size = 14 + Math.random() * 26;
+      h.style.cssText = `
+        left:${Math.random() * 100}%;
+        font-size:${size}px;
+        color:${HEART_COLORS[Math.floor(Math.random() * HEART_COLORS.length)]};
+        opacity:${.35 + Math.random() * .55};
+        animation-duration:${6 + Math.random() * 9}s;
+        animation-delay:${Math.random() * 10}s;
+      `;
+      h.textContent = '♥';
+      page.appendChild(h);
+    }
+  })();
+
+  /* ===== SPARKLES ===== */
+  function spawnSparkles() {
+    const page = document.getElementById('love-page');
+    for (let i = 0; i < 14; i++) {
+      const s = document.createElement('div');
+      s.className = 'sparkle';
+      const size = 4 + Math.random() * 9;
+      const dur  = 1.5 + Math.random() * 2;
+      s.style.cssText = `
+        left:${28 + Math.random() * 44}%;
+        top:${18 + Math.random() * 64}%;
+        width:${size}px; height:${size}px;
+        animation-duration:${dur}s;
+        animation-delay:${Math.random() * .8}s;
+      `;
+      page.appendChild(s);
+      setTimeout(() => s.remove(), (dur + 1) * 1000);
+    }
+  }
+  spawnSparkles();
+  setInterval(spawnSparkles, SPARKLE_INTERVAL);
+
+  /* ===== HEART CLICK ===== */
+  function heartClick() {
+    const shape = document.getElementById('heart-shape');
+    shape.classList.remove('clicked');
+    void shape.offsetWidth;              // reflow to restart animation
+    shape.classList.add('clicked');
+    shape.addEventListener('animationend', () => shape.classList.remove('clicked'), { once: true });
+
+    spawnSparkles();
+
+    const msg = SURPRISE_MESSAGES[Math.floor(Math.random() * SURPRISE_MESSAGES.length)];
+    document.getElementById('popup-msg').textContent = msg;
+    document.getElementById('popup-overlay').classList.add('open');
+  }
+
+  function closePopup() {
+    document.getElementById('popup-overlay').classList.remove('open');
+  }
+
+  /* ===== AUDIO ===== */
+  const audio     = document.getElementById('bg-audio');
+  const audioBtn  = document.getElementById('audio-btn');
+  const audioIcon = document.getElementById('audio-icon');
+  const audioLbl  = document.getElementById('audio-label');
+
+  function toggleAudio() {
+    if (audio.paused) {
+      audio.play().catch(() => {});
+      audioIcon.textContent = '🔊';
+      audioLbl.textContent  = 'إيقاف';
+      audioBtn.classList.add('playing');
+    } else {
+      audio.pause();
+      audioIcon.textContent = '🔇';
+      audioLbl.textContent  = 'تشغيل';
+      audioBtn.classList.remove('playing');
+    }
+  }
+
+  /* Try autoplay on first interaction */
+  document.addEventListener('click', function tryPlay() {
+    if (audio.paused) {
+      audio.play()
+        .then(() => {
+          audioIcon.textContent = '🔊';
+          audioLbl.textContent  = 'إيقاف';
+          audioBtn.classList.add('playing');
+        })
+        .catch(() => {});
+    }
+    document.removeEventListener('click', tryPlay);
+  }, { once: false });
+</script>
+</body>
+</html>
